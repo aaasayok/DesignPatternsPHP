@@ -5,11 +5,10 @@ namespace DesignPatterns\Structural\Decorator\Tests;
 use DesignPatterns\Structural\Decorator;
 
 /**
- * DecoratorTest tests the decorator pattern
+ * DecoratorTest tests the decorator pattern.
  */
 class DecoratorTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $service;
 
     protected function setUp()
@@ -27,7 +26,7 @@ class DecoratorTest extends \PHPUnit_Framework_TestCase
 
     public function testXmlDecorator()
     {
-        // Wrap service with a JSON decorator for renderers
+        // Wrap service with a XML decorator for renderers
         $service = new Decorator\RenderInXml($this->service);
         // Our Renderer will now output XML instead of an array
         $xml = '<?xml version="1.0"?><foo>bar</foo>';
@@ -35,7 +34,7 @@ class DecoratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * The first key-point of this pattern :
+     * The first key-point of this pattern :.
      */
     public function testDecoratorMustImplementsRenderer()
     {
@@ -45,7 +44,7 @@ class DecoratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Second key-point of this pattern : the decorator is type-hinted
+     * Second key-point of this pattern : the decorator is type-hinted.
      *
      * @expectedException \PHPUnit_Framework_Error
      */
@@ -59,7 +58,7 @@ class DecoratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Second key-point of this pattern : the decorator is type-hinted
+     * Second key-point of this pattern : the decorator is type-hinted.
      *
      * @requires PHP 7
      * @expectedException TypeError
@@ -70,7 +69,7 @@ class DecoratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * The decorator implements and wraps the same interface
+     * The decorator implements and wraps the same interface.
      */
     public function testDecoratorOnlyAcceptRenderer()
     {

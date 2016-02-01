@@ -3,10 +3,10 @@
 namespace DesignPatterns\Behavioral\Command;
 
 /**
- * This concrete command calls "print" on the Receiver, but an external
+ * This concrete command tweaks receiver to add current date to messages
  * invoker just knows that it can call "execute".
  */
-class HelloCommand implements CommandInterface
+class AddMessageDateCommand implements UndoableCommandInterface
 {
     /**
      * @var Receiver
@@ -25,12 +25,22 @@ class HelloCommand implements CommandInterface
     }
 
     /**
-     * execute and output "Hello World".
+     * Execute and make receiver to enable displaying messages date.
      */
     public function execute()
     {
         // sometimes, there is no receiver and this is the command which
         // does all the work
-        $this->output->write('Hello World');
+        $this->output->enableDate();
+    }
+
+    /**
+     * Undo the command and make receiver to disable displaying messages date.
+     */
+    public function undo()
+    {
+        // sometimes, there is no receiver and this is the command which
+        // does all the work
+        $this->output->disableDate();
     }
 }
